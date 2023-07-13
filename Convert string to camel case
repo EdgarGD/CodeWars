@@ -1,0 +1,42 @@
+using System;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
+
+public class Kata
+{
+  public static string ToCamelCase(string str)
+  {
+    string pattern = "_|-";
+    string target = " ";
+    string first_word = string.Empty;
+    List<string> word1 = new List<string>();
+    
+    Regex regex = new Regex(pattern);
+    string result = regex.Replace(str, target);
+    string[] words = result.Split(' ');
+    
+    if (words.Length > 0 && words[0].Length > 0 && char.IsLower(words[0][0]))
+    {
+      first_word = words[0];
+      List<string> list = new List<string>(words);
+      list.RemoveAt(0);
+      words = list.ToArray();
+    }
+    
+    foreach (string word in words)
+    {
+      word1.Add(ChangeStringCase(word));
+    }
+    string combinedString = string.Join("",word1);
+    string final = first_word + combinedString;
+    return final;
+  }
+  
+  public static string ChangeStringCase(string str)
+  {
+    if (!string.IsNullOrEmpty(str))
+      return (char.ToUpper(str[0]) + str.Substring(1));
+    else
+      return str;
+  }
+}
