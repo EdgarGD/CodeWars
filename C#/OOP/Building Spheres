@@ -1,0 +1,24 @@
+using System;
+
+public class Sphere
+{
+  public double radius;
+  public double mass;
+  public double pi = Math.PI;
+  
+  public double GetRadius() => radius;
+  
+  public double GetMass() => mass;
+  
+  public double GetVolume() => Math.Round((4.0/3.0)*pi*Math.Pow(radius,3),5);
+  
+  public double GetSurfaceArea() => Math.Round(4.0*pi*Math.Pow(radius,2),5);
+  
+  public double GetDensity() => Math.Round(mass/(4.0/3.0*pi*Math.Pow(radius,3)),5);
+  
+  public Sphere(double _radius, double _mass)
+  {
+    radius = _radius;
+    mass = _mass;
+  }
+}
