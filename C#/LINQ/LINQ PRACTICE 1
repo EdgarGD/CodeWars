@@ -1,0 +1,24 @@
+using System;
+using System.Linq;
+
+public class Kata
+{
+  public static int Sum(int[] integers)
+  {
+    return integers.Sum();
+  }
+ 
+  public static int CountChar(char[] chars, char charToCount)
+  {
+    var occurences = from char1 in chars
+                     where char1 == charToCount
+                     select char1;
+    return occurences.Count();
+  }
+ 
+  public static int[] CalculateSquares(int start, int end)
+  {
+    var result = Enumerable.Range(start, end - start + 1).Select(i => i * i).ToArray();
+    return result;
+  }
+}

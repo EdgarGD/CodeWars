@@ -1,0 +1,25 @@
+using System;
+
+class Block
+{
+  public int width;
+  public int length;
+  public int height;
+  
+  public int GetWidth() => width;
+  
+  public int GetLength() => length;
+  
+  public int GetHeight() => height;
+  
+  public int GetVolume() => height*length*width;
+  
+  public int GetSurfaceArea() => 2*(length*width+height*length+height*width);
+  
+  public Block(int[] nums)
+  {
+    width = nums[0];
+    length = nums[1];
+    height = nums[2];
+  }
+}
